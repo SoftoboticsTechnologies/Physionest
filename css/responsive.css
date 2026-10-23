@@ -1,0 +1,136 @@
+/* =========================================================
+   PhysioNest — responsive overrides
+   Breakpoints: 1199 / 959 / 767 / 479 / 359
+   ========================================================= */
+
+/* ---------- Laptops / small desktops ---------- */
+@media (max-width: 1199px) {
+  .icon-cards { grid-template-columns: repeat(3, 1fr); }
+  .hero-grid { gap: 40px; }
+  .about-grid { gap: 56px; }
+  .consult { padding: 48px; }
+  .process { grid-template-columns: repeat(3, 1fr); row-gap: 48px; }
+  .process::before { display: none; }
+  .steps-layout { grid-template-columns: 1fr; }
+  .carousel-track { grid-auto-columns: calc((100% - 24px) / 2); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- Tablets: switch to mobile navigation ---------- */
+@media (max-width: 959px) {
+  :root { --header-h: 72px; }
+  .brand img { width: 96px; }
+
+  .nav-toggle { display: inline-flex; }
+  .primary-nav {
+    position: fixed; inset: var(--header-h) 0 auto 0;
+    max-height: calc(100dvh - var(--header-h)); overflow-y: auto;
+    flex-direction: column; align-items: stretch; gap: 16px;
+    padding: 20px var(--gutter) 28px;
+    background: var(--white); border-top: 1px solid var(--line);
+    box-shadow: 0 24px 40px rgba(13, 43, 54, .12);
+    opacity: 0; visibility: hidden; transform: translateY(-12px);
+    transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s linear .25s;
+  }
+  .primary-nav.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  .nav-list { flex-direction: column; align-items: stretch; gap: 4px; padding: 0; background: none; border-radius: 0; }
+  .nav-list a { padding: 14px 16px; border-radius: 12px; font-size: 1.0625rem; }
+  .nav-list a:hover { background: var(--mist); }
+  .primary-nav .btn { width: 100%; }
+  body.nav-open { overflow: hidden; }
+
+  .section { padding-block: 80px; }
+  .hero-grid, .about-grid, .b-hero-grid, .faq-layout, .cabinet-layout { grid-template-columns: 1fr; }
+  .hero-grid { padding-block: 72px 80px; }
+  .about-grid { gap: 48px; }
+  .collage { max-width: 560px; }
+  .consult { grid-template-columns: 1fr; gap: 32px; }
+  .stat-stack { grid-template-columns: 1fr 1fr; }
+  .faq-layout { gap: 40px; }
+  .faq-intro { position: static; }
+  .photo-cards { grid-template-columns: 1fr 1fr; }
+  .b-hero-grid { gap: 48px; }
+  .b-hero-media { max-width: 520px; margin-inline: auto; width: 100%; }
+  .trust-card { left: 16px; }
+  .b-stats { grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .b-stat { flex-direction: column; align-items: flex-start; padding: 22px; }
+  .sidebar { position: static; }
+  .map-wrap iframe { height: 380px; }
+}
+
+/* ---------- Large phones ---------- */
+@media (max-width: 767px) {
+  :root { --gutter: 20px; }
+  body { font-size: 1rem; }
+  .section { padding-block: 64px; }
+  .section-head { margin-bottom: 40px; }
+
+  .icon-cards { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .icon-card { padding: 24px 20px; }
+  .story-grid { grid-template-columns: 1fr; }
+  .story { padding: 30px 26px; }
+  .photo-cards { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+  .process { grid-template-columns: 1fr; row-gap: 0; }
+  .step { display: grid; grid-template-columns: 64px 1fr; gap: 0 18px; text-align: left; padding: 0 0 32px; }
+  .step::before {
+    content: ""; position: absolute; left: 31px; top: 70px; bottom: 6px; width: 2px;
+    background: repeating-linear-gradient(180deg, rgba(255, 255, 255, .25) 0 6px, transparent 6px 12px);
+  }
+  .step:last-child::before { display: none; }
+  .step:last-child { padding-bottom: 0; }
+  .step-num { width: 64px; height: 64px; margin: 0; font-size: 1.6rem; grid-row: span 2; }
+  .steps-list { grid-template-columns: 1fr; }
+  .b-stats { grid-template-columns: 1fr; padding-bottom: 64px; }
+  .b-stat { flex-direction: row; align-items: center; }
+  .carousel-track { grid-auto-columns: 88%; gap: 16px; }
+  .consult { padding: 36px 24px; border-radius: var(--r-lg); }
+  .stat-stack { grid-template-columns: 1fr; }
+  .journey { padding: 64px 24px; border-radius: var(--r-lg); }
+  .faq-panel { padding: 24px 18px; border-radius: var(--r-lg); }
+  .acc-trigger { padding: 16px; }
+  .acc-panel p { padding: 0 16px 18px; }
+  .appt-card { padding: 32px 22px; border-radius: var(--r-lg); }
+  .widget-grid { grid-template-columns: 1fr; }
+  .expert-card { padding: 36px 26px; }
+  .expert-card h3 { font-size: 1.6rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 48px; }
+  .site-footer { padding-top: 64px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; padding-bottom: 88px; }
+  .powered { padding-left: 0; border-left: 0; }
+  .map-wrap { border-radius: var(--r-lg); }
+  .map-wrap iframe { height: 320px; }
+  .page-hero { padding-block: 72px 64px; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 479px) {
+  .form-card { padding: 26px 20px; border-radius: var(--r-lg); }
+  .form-grid, .appt-card .form-grid, .name-pair { grid-template-columns: 1fr; }
+  .icon-cards { grid-template-columns: 1fr; }
+  .collage { padding-bottom: 48px; }
+  .collage__inset { border-width: 5px; }
+  .collage::before { display: none; }
+  .btn-row .btn { width: 100%; }
+  .about-copy .btn, .faq-intro .btn, .consult .btn { width: 100%; }
+  .trust-card { position: relative; left: auto; bottom: auto; max-width: none; margin: -48px 16px 0; }
+  .b-hero-media img { border-radius: 140px 140px var(--r-lg) var(--r-lg); }
+  .stat { padding: 20px; }
+  .stat h3 { font-size: 2.6rem; }
+  .story .quote-mark { font-size: 2rem; }
+  .wa-float, .wa-float:hover, .wa-float:focus-visible { padding: 14px; }
+  .wa-float span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .search-form { flex-direction: column; }
+  .search-form .btn { width: 100%; }
+  .expert-phone { font-size: 1.45rem; }
+}
+
+/* ---------- Very small phones (320px) ---------- */
+@media (max-width: 359px) {
+  :root { --gutter: 16px; }
+  .brand img { width: 84px; }
+  .hero h1 { font-size: 2.1rem; }
+  .b-hero h1 { font-size: 2.2rem; }
+  .eyebrow { font-size: .75rem; letter-spacing: .05em; }
+  .b-stat { padding: 18px; }
+  .expert-phone { font-size: 1.3rem; }
+}
